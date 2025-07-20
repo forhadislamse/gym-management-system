@@ -157,8 +157,8 @@ Below is the Entity Relationship (ER) Diagram for the system:
 
 # Admin Credentials
 
-- Email: mdemdadullahahammed@gmail.com
-- Password: 12345
+- id: Admin-0001,
+- password: admin123
 
 # Live Hosting Link
 
