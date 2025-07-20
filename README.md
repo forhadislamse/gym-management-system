@@ -162,7 +162,7 @@ Below is the Entity Relationship (ER) Diagram for the system:
 
 # Live Hosting Link
 
-- Server: https://gym-system-server.vercel.app
-- Site Live: https://devemdad-gym-schedule.vercel.app
+- Server:
+- Site Live:
 
 ### Happy Codding 💻
