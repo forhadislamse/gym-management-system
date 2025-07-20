@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 import AppError from '../../errors/AppError';
 import { Booking } from './booking.model';
 import { ClassSchedule } from '../classSchedule/classSchedule.model';
+import { Trainee } from '../trainee/trainee.model';
 
 export const createBookingIntoDB = async (
   classScheduleID: string,
@@ -37,9 +38,9 @@ export const createBookingIntoDB = async (
     }
 
     const bookingData = {
-      classSchedule: classScheduleID,
-      trainee: traineeID,
-      trainer: classSchedule.trainer,
+      classSchedule: new mongoose.Types.ObjectId(classScheduleID),
+      trainee: new mongoose.Types.ObjectId(traineeID),
+      trainer: classSchedule.trainer, // this should already be ObjectId
     };
 
     // Create the booking
@@ -82,16 +83,16 @@ const cancelBookingIntoDB = async (bookingID: string) => {
   }
 };
 
-const getMyAllBooking = async (traineeId: string) => {
-  return Booking.find({ trainee: traineeId }).populate('classSchedule');
-};
+const getMyAllBooking = async (customId: string) => {
+  // Look up trainee using custom `id` field (not _id)
+  const trainee = await Trainee.findOne({ id: customId });
 
-export const cancelBooking = async (bookingID: string) => {
-  const deleted = await Booking.findByIdAndDelete(bookingID);
-  if (!deleted) {
-    throw new AppError(httpStatus.NOT_FOUND, 'Booking not found');
+  if (!trainee) {
+    throw new AppError(404, 'Trainee not found');
   }
-  return deleted;
+
+  // Use the actual ObjectId (_id)
+  return Booking.find({ trainee: trainee._id }).populate('classSchedule');
 };
 
 export const BookingServices = {

@@ -24,6 +24,7 @@ const auth = (...requiredRoles: TUserRole[]) => {
     ) as JwtPayload;
 
     const { role, userId } = decoded;
+    console.log(role);
 
     // checking if the user is exist
     const user = await User.isUserExistsByCustomId(userId);
@@ -32,7 +33,7 @@ const auth = (...requiredRoles: TUserRole[]) => {
       throw new AppError(httpStatus.NOT_FOUND, 'This user is not found !');
     }
     // checking if the user is already deleted
-
+    console.log(requiredRoles);
     if (requiredRoles && !requiredRoles.includes(role)) {
       throw new AppError(httpStatus.UNAUTHORIZED, 'Unauthorized access');
     }

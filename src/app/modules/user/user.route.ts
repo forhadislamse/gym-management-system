@@ -22,7 +22,7 @@ router.post(
 );
 router.post(
   '/create-trainee',
-  auth('trainee'),
+  // auth('trainee'),
   validateRequest(createTraineeValidationSchema),
   UserControllers.createTrainee,
 );

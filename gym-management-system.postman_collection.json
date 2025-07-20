@@ -1,0 +1,708 @@
+{
+  "info": {
+    "_postman_id": "04833dc7-d32a-49f6-a85a-9a2e6d9a3f9b",
+    "name": "gym-management-system",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "34968572"
+  },
+  "item": [
+    {
+      "name": "user",
+      "item": [
+        {
+          "name": "create admin",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"password\": \"admin123\",\r\n    \"admin\": {\r\n        \"name\": \"Wasiful1\",\r\n        \"gender\": \"male\",\r\n        \"dateOfBirth\": \"1985-06-15\",\r\n        \"email\": \"was1@example.com\",\r\n        \"phoneNumber\": \"+8801234567890\",\r\n        \"address\": \"123 Green Road, Dhaka\"\r\n    }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/users/create-admin",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "v1", "users", "create-admin"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "create trainer",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJBZG1pbi0wMDAxIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzUyOTkwMDQ0LCJleHAiOjE3NTM4NTQwNDR9.7U500fUTLYmU8EX7_YI63f44AeSJoe1rc6RiXvOeBo8",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"password\": \"trainer123\",\r\n    \"trainer\": {\r\n        \"name\": \"Forhad4\",\r\n        \"gender\": \"male\",\r\n        \"dateOfBirth\": \"1985-06-15\",\r\n        \"email\": \"for4@example.com\",\r\n        \"phoneNumber\": \"+8801234567890\",\r\n        \"address\": \"123 Green Road, Dhaka\"\r\n    }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/users/create-trainer",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "v1", "users", "create-trainer"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "create trainee",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"password\": \"trainee123\",\r\n    \"trainee\": {\r\n        \"name\": \"sayem3\",\r\n        \"gender\": \"male\",\r\n        \"dateOfBirth\": \"1985-06-15\",\r\n        \"email\": \"sayem3@example.com\",\r\n        \"phoneNumber\": \"+8801234567890\",\r\n        \"address\": \"123 Green Road, Dhaka\"\r\n    }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/users/create-trainee",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "v1", "users", "create-trainee"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "admin",
+      "item": [
+        {
+          "name": "get all admins",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJBZG1pbi0wMDAxIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzUyOTkwMDQ0LCJleHAiOjE3NTM4NTQwNDR9.7U500fUTLYmU8EX7_YI63f44AeSJoe1rc6RiXvOeBo8",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/api/v1/admins/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "v1", "admins", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get specific admin",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJBZG1pbi0wMDAxIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzUyOTkwMDQ0LCJleHAiOjE3NTM4NTQwNDR9.7U500fUTLYmU8EX7_YI63f44AeSJoe1rc6RiXvOeBo8",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/api/v1/admins/687c811ca1340bb58ed1940a",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "v1", "admins", "687c811ca1340bb58ed1940a"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update specific admin",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJBZG1pbi0wMDAxIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzUyOTkwMDQ0LCJleHAiOjE3NTM4NTQwNDR9.7U500fUTLYmU8EX7_YI63f44AeSJoe1rc6RiXvOeBo8",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"admin\": {\r\n        \"name\": \"Wasiful islam\"\r\n    }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/admins/687c8c06d85d7e72fc993b01",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "v1", "admins", "687c8c06d85d7e72fc993b01"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete specific admin",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJBZG1pbi0wMDAxIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzUyOTkwMDQ0LCJleHAiOjE3NTM4NTQwNDR9.7U500fUTLYmU8EX7_YI63f44AeSJoe1rc6RiXvOeBo8",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/api/v1/admins/687c8c06d85d7e72fc993b01",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "v1", "admins", "687c8c06d85d7e72fc993b01"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "trainer",
+      "item": [
+        {
+          "name": "get all trainers",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJBZG1pbi0wMDAxIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzUyOTkwMDQ0LCJleHAiOjE3NTM4NTQwNDR9.7U500fUTLYmU8EX7_YI63f44AeSJoe1rc6RiXvOeBo8",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/api/v1/trainers/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "v1", "trainers", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get class schedule",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJUcmFpbmVyLTAwMDEiLCJyb2xlIjoidHJhaW5lciIsImlhdCI6MTc1Mjk5OTg4MywiZXhwIjoxNzUzODYzODgzfQ.QvScVPPElREDN_UJvyT_63k449EjtEoQ_LSny6W4Mmc",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/api/v1/trainers/my-class-schedule",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "v1", "trainers", "my-class-schedule"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get specific trainer",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJBZG1pbi0wMDAxIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzUyOTkwMDQ0LCJleHAiOjE3NTM4NTQwNDR9.7U500fUTLYmU8EX7_YI63f44AeSJoe1rc6RiXvOeBo8",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/api/v1/trainers/687c8782ba0a0c9b44b7ef76",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "v1", "trainers", "687c8782ba0a0c9b44b7ef76"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update specific trainer",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJBZG1pbi0wMDAxIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzUyOTkwMDQ0LCJleHAiOjE3NTM4NTQwNDR9.7U500fUTLYmU8EX7_YI63f44AeSJoe1rc6RiXvOeBo8",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"trainer\": {\r\n        \"name\": \"Forhad Islam\"\r\n    }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/trainers/687c8782ba0a0c9b44b7ef76",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "v1", "trainers", "687c8782ba0a0c9b44b7ef76"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete specific trainer",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJBZG1pbi0wMDAxIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzUyOTkwMDQ0LCJleHAiOjE3NTM4NTQwNDR9.7U500fUTLYmU8EX7_YI63f44AeSJoe1rc6RiXvOeBo8",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/api/v1/trainers/687c89e2ba0a0c9b44b7ef8e",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "v1", "trainers", "687c89e2ba0a0c9b44b7ef8e"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "trainee",
+      "item": [
+        {
+          "name": "get all trainees",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJUcmFpbmVlLTAwMDEiLCJyb2xlIjoidHJhaW5lZSIsImlhdCI6MTc1Mjk5NDA4MiwiZXhwIjoxNzUzODU4MDgyfQ.7aJwqDA5Q7qgJ5R1jxPzBKn6gW7--drizjX3BlC9Ei0",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/api/v1/trainees/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "v1", "trainees", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get specific trainer",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJUcmFpbmVlLTAwMDEiLCJyb2xlIjoidHJhaW5lZSIsImlhdCI6MTc1Mjk5NDA4MiwiZXhwIjoxNzUzODU4MDgyfQ.7aJwqDA5Q7qgJ5R1jxPzBKn6gW7--drizjX3BlC9Ei0",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/api/v1/trainees/687c9082fa7b4fc18c750f59",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "v1", "trainees", "687c9082fa7b4fc18c750f59"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update specific trainer",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJUcmFpbmVlLTAwMDEiLCJyb2xlIjoidHJhaW5lZSIsImlhdCI6MTc1Mjk5NDA4MiwiZXhwIjoxNzUzODU4MDgyfQ.7aJwqDA5Q7qgJ5R1jxPzBKn6gW7--drizjX3BlC9Ei0",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"trainee\": {\r\n        \"name\": \"Farhad\"\r\n    }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/trainees/687c9082fa7b4fc18c750f59",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "v1", "trainees", "687c9082fa7b4fc18c750f59"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete specific trainer",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJUcmFpbmVlLTAwMDEiLCJyb2xlIjoidHJhaW5lZSIsImlhdCI6MTc1Mjk5NDA4MiwiZXhwIjoxNzUzODU4MDgyfQ.7aJwqDA5Q7qgJ5R1jxPzBKn6gW7--drizjX3BlC9Ei0",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/api/v1/trainees/687c9082fa7b4fc18c750f59",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "v1", "trainees", "687c9082fa7b4fc18c750f59"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "class schedule",
+      "item": [
+        {
+          "name": "create class schedule",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJBZG1pbi0wMDAxIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzUyOTkwMDQ0LCJleHAiOjE3NTM4NTQwNDR9.7U500fUTLYmU8EX7_YI63f44AeSJoe1rc6RiXvOeBo8",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"trainer\": \"687c8782ba0a0c9b44b7ef76\",\r\n    \"trainee\": [\r\n        \"687c9064fa7b4fc18c750f4a\",\"687c906dfa7b4fc18c750f4f\",\"687c9082fa7b4fc18c750f59\"\r\n    ],\r\n    \"classScheduleDate\": \"2031-05-10T04:00:01Z\",\r\n    \"maxTrainees\": 5,\r\n    \"startTime\": \"12:30\",\r\n    \"endTime\": \"14:30\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/schedules/create-schedule",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "v1", "schedules", "create-schedule"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "assign trainer to class schedule",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJBZG1pbi0wMDAxIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzUyOTkwMDQ0LCJleHAiOjE3NTM4NTQwNDR9.7U500fUTLYmU8EX7_YI63f44AeSJoe1rc6RiXvOeBo8",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"trainerId\": \"687c883fba0a0c9b44b7ef7c\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/schedules/assign-trainer/687ca0d662e1d454d1569355",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": [
+                "api",
+                "v1",
+                "schedules",
+                "assign-trainer",
+                "687ca0d662e1d454d1569355"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get all class schedules",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJBZG1pbi0wMDAxIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzUyOTkwMDQ0LCJleHAiOjE3NTM4NTQwNDR9.7U500fUTLYmU8EX7_YI63f44AeSJoe1rc6RiXvOeBo8",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/api/v1/schedules/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "v1", "schedules", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete a class schedule",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJBZG1pbi0wMDAxIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzUyOTkwMDQ0LCJleHAiOjE3NTM4NTQwNDR9.7U500fUTLYmU8EX7_YI63f44AeSJoe1rc6RiXvOeBo8",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/api/v1/schedules/687ca0d662e1d454d1569355",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "v1", "schedules", "687ca0d662e1d454d1569355"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "booking",
+      "item": [
+        {
+          "name": "create bookings",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJUcmFpbmVlLTAwMDEiLCJyb2xlIjoidHJhaW5lZSIsImlhdCI6MTc1MzAwMjM2NSwiZXhwIjoxNzUzODY2MzY1fQ.8Uxk6GJ2fV3klvqovCD1MIa0tWFVBfEG-T8czsIegCs",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/api/v1/bookings/create/687b93d2f5df7bff0cb96a30",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": [
+                "api",
+                "v1",
+                "bookings",
+                "create",
+                "687b93d2f5df7bff0cb96a30"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get my bookings",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJUcmFpbmVlLTAwMDEiLCJyb2xlIjoidHJhaW5lZSIsImlhdCI6MTc1MzAwMjM2NSwiZXhwIjoxNzUzODY2MzY1fQ.8Uxk6GJ2fV3klvqovCD1MIa0tWFVBfEG-T8czsIegCs",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/api/v1/bookings/my-bookings",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "v1", "bookings", "my-bookings"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "cancel bookings",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJUcmFpbmVlLTAwMDEiLCJyb2xlIjoidHJhaW5lZSIsImlhdCI6MTc1MzAwMjM2NSwiZXhwIjoxNzUzODY2MzY1fQ.8Uxk6GJ2fV3klvqovCD1MIa0tWFVBfEG-T8czsIegCs",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/api/v1/bookings/687cb35a85bbbfc57bcead2e",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "v1", "bookings", "687cb35a85bbbfc57bcead2e"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Login admin",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"id\": \"Admin-0001\",\r\n    \"password\": \"admin123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{ph-local-url}}/auth/login",
+              "host": ["{{ph-local-url}}"],
+              "path": ["auth", "login"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login trainer",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"id\": \"Trainer-0001\",\r\n    \"password\": \"trainer123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{ph-local-url}}/auth/login",
+              "host": ["{{ph-local-url}}"],
+              "path": ["auth", "login"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login trainee",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"id\": \"Trainee-0001\",\r\n    \"password\": \"trainee123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{ph-local-url}}/auth/login",
+              "host": ["{{ph-local-url}}"],
+              "path": ["auth", "login"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "refresh token",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJGLTAwMDEiLCJyb2xlIjoiZmFjdWx0eSIsImlhdCI6MTc1MjUwMzAwNSwiZXhwIjoxNzUzMzY3MDA1fQ.0fZCHnUxFzk8oQYG421nNAINGbZpHkw1bIxu4pzPlKM",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "\r\n   {\r\n    \"id\": \"A-0001\",\r\n    \"password\": \"admin123\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{ph-local-url}}/auth/refresh-token",
+              "host": ["{{ph-local-url}}"],
+              "path": ["auth", "refresh-token"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

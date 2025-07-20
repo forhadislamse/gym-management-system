@@ -1,10 +1,29 @@
-# **Gym Class Scheduling and Membership Management System - Backend**
+# Gym Class Scheduling and Membership Management System
 
-## **Project Overview**
+## Project Overview
 
-backend system for the **Gym Class Scheduling and Membership Management System** provides APIs for managing gym operations such as class scheduling, trainer and trainee management, bookings, and user authentication. It handles role-based access, ensuring that each user (Admin, Trainer, or Trainee) has the appropriate permissions. The system uses MongoDB for data storage and JWT for secure authentication.
+This application is a comprehensive Gym Class Scheduling and Membership Management System designed to efficiently manage gym operations with clearly defined roles and permissions.
+
+### Key Features
+
+- **Role-Based Access Control:** Supports three user roles — Admin, Trainer, and Trainee — each with distinct permissions.
+- **Class Scheduling:** Admins can schedule up to 5 classes per day, each lasting 2 hours.
+- **Booking Management:** Trainees can book classes with a maximum of 10 trainees per schedule, avoiding double bookings in overlapping time slots.
+- **Profile Management:** Trainees manage their own profiles while trainers can view their assigned schedules.
+- **Secure Authentication:** JWT-based authentication ensures secure access and role-based authorization.
+- **Global Error Handling:** Includes validation, unauthorized access prevention, booking capacity checks, and schedule limits enforcement.
+
+### Business Rules
+
+- Maximum 5 classes can be scheduled per day.
+- Each class session lasts 2 hours.
+- Each class can accommodate up to 10 trainees.
+- Trainees cannot book overlapping classes.
+- Booking and scheduling limits are strictly enforced with proper error messages.
 
 ---
+
+This project provides a scalable and secure solution for gym management, improving operational workflow and user experience through precise role definitions and business rule enforcement.
 
 ## **Technology Stack**
 
@@ -50,6 +69,30 @@ Below is the Entity Relationship (ER) Diagram for the system:
 
 ---
 
+### **Admin Management**
+
+1. **Create Admin**
+
+   - **POST** `http://localhost:5000/api/v1/users/create-admin`
+
+2. **Get All Admins**
+
+   - **GET** `http://localhost:5000/api/v1/admins/`
+
+3. **Get specific Admin**
+
+   - **GET** `http://localhost:5000/api/v1/admins/687c811ca1340bb58ed1940a`
+
+4. **Update specific Admin**
+
+   - **patch** `http://localhost:5000/api/v1/admins/687c811ca1340bb58ed1940a`
+
+5. **Delete specific Admin**
+
+   - **patch** `http://localhost:5000/api/v1/admins/687c811ca1340bb58ed1940a`
+
+---
+
 ### **Trainer Management**
 
 1. **Create Trainer**
@@ -60,29 +103,45 @@ Below is the Entity Relationship (ER) Diagram for the system:
 
    - **GET** `http://localhost:5000/api/v1/trainers/`
 
-3. **Get Trainer's Class Schedules**
+3. **Get specific Trainer**
+
+   - **GET** `http://localhost:5000/api/v1/trainers/687c8782ba0a0c9b44b7ef76`
+
+4. **Update specific Trainer**
+
+   - **patch** `http://localhost:5000/api/v1/trainers/687c8782ba0a0c9b44b7ef76`
+
+5. **Get Trainer's Class Schedules**
 
    - **GET** `http://localhost:5000/api/v1/trainers/my-class-schedule/`
 
-4. **Delete Trainer by Trainer ID**
+6. **Delete Trainer by Trainer ID**
 
-   - **DELETE** `/trainers/6707787bf06e315366588b95`
+   - **DELETE** `http://localhost:5000/api/v1/trainers/687c8782ba0a0c9b44b7ef76`
 
 ---
 
 ### **Trainee Management**
 
-1. **Create New Trainee**
+1. **Create Trainee**
 
-   - **POST** `/trainees/create`
-   - **Body**:
-     ```json
-     {
-       "fullName": "trainee 4",
-       "email": "trainee4@gmail.com",
-       "password": "12345"
-     }
-     ```
+   - **POST** `http://localhost:5000/api/v1/users/create-trainee`
+
+2. **Get All Trainees**
+
+   - **GET** `http://localhost:5000/api/v1/trainees/`
+
+3. **Get specific Trainee**
+
+   - **GET** `http://localhost:5000/api/v1/trainees/687c9082fa7b4fc18c750f59`
+
+4. **Update specific Trainee**
+
+   - **patch** `http://localhost:5000/api/v1/trainees/687c9082fa7b4fc18c750f59`
+
+5. **Delete Trainee by Trainee ID**
+
+   - **DELETE** `http://localhost:5000/api/v1/trainees/687c9082fa7b4fc18c750f59`
 
 ---
 
@@ -90,33 +149,38 @@ Below is the Entity Relationship (ER) Diagram for the system:
 
 1. **Create New Class Schedule**
 
-   - **POST** `/classSchedules/create`
+   - **POST** `http://localhost:5000/api/v1/schedules/create-schedule`
    - **Body**:
-     ```json
+     `json
      {
-       "scheduleDate": "2024-10-10",
-       "startTime": "15:00",
-       "endTime": "17:00"
-     }
-     ```
+    "trainer": "687c8782ba0a0c9b44b7ef76",
+    "trainee": [
+        "687c9064fa7b4fc18c750f4a","687c906dfa7b4fc18c750f4f","687c9082fa7b4fc18c750f59"
+    ],
+    "classScheduleDate": "2031-05-10T04:00:01Z",
+    "maxTrainees": 5,
+    "startTime": "12:30",
+    "endTime": "14:30"
+}
+     `
 
 2. **Get All Class Schedules**
 
-   - **GET** `/classSchedules`
+   - **GET** `http://localhost:5000/api/v1/schedules/`
 
 3. **Assign Trainer to Class Schedule**
 
-   - **PATCH** `/classSchedules/assign-trainer/6707e8a7d677cc476485df65`
+   - **PATCH** `http://localhost:5000/api/v1/schedules/assign-trainer/687ca0d662e1d454d1569355`
    - **Body**:
-     ```json
+     `json
      {
-       "trainerId": "67076fb8c9c457df26ce4597"
-     }
-     ```
+    "trainerId": "687c883fba0a0c9b44b7ef7c"
+}
+     `
 
 4. **Delete Class Schedule by Schedule ID**
 
-   - **DELETE** `/classSchedules/6707e8d8d677cc476485df6a`
+   - **DELETE** `http://localhost:5000/api/v1/schedules/687ca0d662e1d454d1569355`
 
 ---
 
@@ -124,36 +188,158 @@ Below is the Entity Relationship (ER) Diagram for the system:
 
 1. **Create Booking by Schedule ID**
 
-   - **POST** `/bookings/create/6707e8a7d677cc476485df65`
+   - **POST** `http://localhost:5000/api/v1/bookings/create/687b93d2f5df7bff0cb96a30`
 
 2. **Get My Bookings**
 
-   - **GET** `/bookings/my-bookings`
+   - **GET** `http://localhost:5000/api/v1/bookings/my-bookings`
 
 3. **Cancel My Booking**
 
-   - **DELETE** `/bookings/670809959f7b2a452df37e86`
+   - **DELETE** `http://localhost:5000/api/v1/schedules/687ca0d662e1d454d1569355`
 
 ---
 
-## **Instructions to Run Locally**
+**Zod Error**
+Occurs when the request body fails Zod validation (e.g., missing fields or wrong types).
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/forhadislamse/gym-management-system
-   ```
-2. **Install dependencies:**
+```json
+{
+  "success": false,
+  "message": "Zod Validation Error",
+  "errorSources": [
+    {
+      "path": "dateOfBirth",
+      "message": "Expected string, received number"
+    }
+  ],
+  "stack": null // only in development
+}
+```
 
-   ```bash
-   cd gym-schedule-system-server
+**Mongoose Validation Error**
+Occurs when Mongoose schema validation fails (e.g., required field missing in DB schema).
+
+```json
+{
+  "success": false,
+  "message": "Mongoose Validation Error",
+  "errorSources": [
+    {
+      "path": "email",
+      "message": "Path `email` is required."
+    }
+  ],
+  "stack": null
+}
+```
+
+**Cast Error**
+Occurs when an invalid ObjectId is passed in a route param (e.g., /admins/123abc)
+
+```json
+{
+  "success": false,
+  "message": "Invalid Id",
+  "errorSources": [
+    {
+      "path": "_id",
+      "message": "Cast to ObjectId failed for value \"6854eac205b8398cf46e1e\" (type string) at path \"_id\" for model \"Admin\""
+    }
+  ],
+  "stack": null
+}
+```
+
+**Not Found Route**
+if no matching routes then response will be
+
+```json
+{
+  "success": false,
+  "message": "API Not Found !!",
+  "error": ""
+}
+```
+
+## Installation
+
+**1. Clone the repository:**
+
+```
+   git clone https://github.com/forhadislamse/university-management-server.git
+   cd university-management-server
+
+   // Using npm:
    npm install
-   ```
 
-3. **Set up environment variables:** Create a .env file and add the necessary environment variables (MongoDB connection, JWT secret, etc.).
-   ```bash
-   npm run dev
-   ```
-4. **Access the API:** The API will be accessible at http://localhost:5000.
+   // Or, using yarn:
+   yarn install
+```
+
+2. Create a `.env` file in the root of the project directory to store environment variables. Example .env file:
+
+```
+   PORT= port number
+   DATABASE_URL= mongodb+srv://<your-db-uri>
+   NODE_ENV= development
+   BCRYPT_SALT_ROUNDS= salt_round
+   DEFAULT_PASS= your password
+ JWT_ACCESS_SECRET=your key
+JWT_REFRESH_SECRET=your key
+JWT_ACCESS_EXPIRES_IN= your days
+JWT_REFRESH_EXPIRES_IN= your days
+```
+
+## Running the Application
+
+We can run the application using the following npm scripts:
+
+### **1. Build the application:**
+
+This command compiles the TypeScript files into JavaScript files:
+
+`npm run build`
+
+### **2. Start the application:**
+
+After building the application, we can start it with the following command:
+
+`npm run start`
+
+### **3. Start the application in development mode:**
+
+For development, we use the start:dev script, which runs the application using ts-node-dev, so it will automatically reload on file changes:
+
+`npm run start:dev`
+
+### **4. Start the application in production mode with nodemon:**
+
+This script uses nodemon to restart the application automatically when changes occur in the compiled JavaScript files:
+
+`npm run start:prod`
+
+### **5. Linting:**
+
+To run ESLint and check for code issues, use the following command:
+
+`npm run lint`
+
+To automatically fix linting issues, use:
+
+`npm run lint:fix`
+
+### **6. Prettier:**
+
+To format your code with Prettier (ignoring .gitignore files), use this command:
+
+`npm run prettier`
+
+To automatically fix prettier issues, use:
+
+`npm run prettier:fix`
+
+### **7. Access the API:** The API will be accessible at http://localhost:5000.
 
 # Admin Credentials
 
@@ -162,7 +348,10 @@ Below is the Entity Relationship (ER) Diagram for the system:
 
 # Live Hosting Link
 
-- Server:
-- Site Live:
+- Live link: `https://gym-management-system-opal.vercel.app/`
 
-### Happy Codding 💻
+![POSTMAN COLLECTION](./gym-management-system.postman_collection.json)
+
+Description: This is a postman collection of all the API endpoints.Download this , and import it in your postman if you needed.
+
+---

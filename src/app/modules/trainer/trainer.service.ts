@@ -26,15 +26,16 @@ const updateTrainerIntoDB = async (id: string, payload: Partial<TTrainer>) => {
 };
 
 const getTrainerClassScheduleFromDB = async (trainerId: string) => {
-  const trainer = await User.findById(trainerId);
-
+  console.log('trainer:', trainerId);
+  const trainer = await Trainer.findOne({ id: trainerId });
+  console.log(trainer);
   if (!trainer) {
     throw new AppError(httpStatus.NOT_FOUND, 'Trainer not found');
   }
 
   const trainerClassSchedule = await ClassSchedule.find({
-    trainer: trainerId,
-  }).populate('trainees');
+    trainer: trainer._id,
+  }).populate('trainee');
   return trainerClassSchedule;
 };
 const deleteTrainerFromDB = async (id: string) => {

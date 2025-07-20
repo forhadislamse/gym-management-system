@@ -5,15 +5,14 @@ import { TrainerControllers } from './trainer.controller';
 import auth from '../../middlewares/auth';
 
 const router = express.Router();
-
 router.get('/', auth('admin'), TrainerControllers.getAllTrainers);
 
-router.get('/:id', auth('admin'), TrainerControllers.getSingleTrainer);
 router.get(
   '/my-class-schedule',
   auth('trainer'),
   TrainerControllers.getTrainerClassSchedule,
 );
+router.get('/:id', auth('admin'), TrainerControllers.getSingleTrainer);
 router.patch(
   '/:id',
   auth('admin'),

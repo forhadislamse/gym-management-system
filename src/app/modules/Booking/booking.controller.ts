@@ -29,8 +29,9 @@ const cancelBooking = catchAsync(async (req, res) => {
   });
 });
 
-export const getMyAllBooking = catchAsync(async (req, res) => {
-  const traineeId = req.user._id;
+const getMyAllBooking = catchAsync(async (req, res) => {
+  console.log(req.user);
+  const traineeId = req.user.userId;
 
   const result = await BookingServices.getMyAllBooking(traineeId);
 

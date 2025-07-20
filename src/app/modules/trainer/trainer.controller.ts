@@ -26,8 +26,9 @@ const getSingleTrainer = catchAsync(async (req, res) => {
   });
 });
 const getTrainerClassSchedule = catchAsync(async (req, res) => {
-  const user = req.user;
-  const result = await TrainerServices.getTrainerClassScheduleFromDB(user._id);
+  const { userId } = req.user;
+  console.log('abc,', req.user);
+  const result = await TrainerServices.getTrainerClassScheduleFromDB(userId);
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
