@@ -140,7 +140,7 @@ Below is the Entity Relationship (ER) Diagram for the system:
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/developeremdad/gym-schedule-system-server
+   git clone https://github.com/forhadislamse/gym-management-system
    ```
 2. **Install dependencies:**
 
